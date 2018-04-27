@@ -1,8 +1,15 @@
+import CircularDependencyPlugin from 'circular-dependency-plugin';
+
 export default {
   entry: {
     main: './src/step1.js',
   },
   target: 'node',
+  plugins: [
+    new CircularDependencyPlugin({
+      allowAsyncCycles: true,
+    }),
+  ],
   module: {
     rules: [
       {
